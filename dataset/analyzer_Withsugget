@@ -1,0 +1,86 @@
+{
+  "mappings": {
+    "blog": {
+      "properties": {
+        "category": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "content": {
+          "type": "text",
+          "analyzer": "my_analyzer",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "creator": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "description": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "pubDate": {
+          "type": "date"
+        },
+        "title": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "suggest": {
+          "type": "completion"
+        }
+      }
+    }
+  },
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "my_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": [
+            "lowercase","my_synonym"
+          ],
+          "char_filter": [
+            "html_strip"
+          ]
+        }
+      },
+      "filter": {
+        "my_synonym": {
+          "type": "synonym",
+          "synonyms": [
+            "lightbend, typesafe => lightbend, typesafe"
+          ]
+        }
+      },
+      "tokenizer": {},
+      "char_filter": {}
+    }
+  }
+}
