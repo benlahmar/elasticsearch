@@ -1,0 +1,33 @@
+{
+ "mappings": {
+   "apartment": {
+     "properties": {
+       "address": {
+         "properties": {
+           "city": {
+             "type": "keyword"
+           },
+           "postalCode": {
+             "type": "keyword"
+           },
+           "street": {
+             "type": "text"
+           }
+         }
+       },
+       "location": {
+          "type": "geo_point"
+       },
+       "nbOfRoom": {
+         "type": "long"
+       },
+       "price": {
+         "type": "long"
+       },
+       "surface": {
+         "type": "long"
+       }
+     }
+   }
+ }
+}
